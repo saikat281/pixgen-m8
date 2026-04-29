@@ -1,5 +1,6 @@
 import { Button, Card, Chip } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { IoDownloadSharp } from 'react-icons/io5';
@@ -19,7 +20,7 @@ const PhotoCard = ({ photo }) => {
                 />
                 <Chip className='absolute left-3 top-2 bg-blue-100 rounded-2xl px-2 font-medium'>{photo.category}</Chip>
             </div>
-            
+
             <div>
                 <h2 className='font-medium'>{photo.title}</h2>
             </div>
@@ -38,7 +39,9 @@ const PhotoCard = ({ photo }) => {
                 </div>
             </div>
 
-            <Button className="bg-blue-600 w-full rounded-2xl p-2 text-white cursor-pointer">View More</Button>
+            <Link href={`/all-photos/${photo.id}`}>
+                <Button className="bg-blue-600 w-full rounded-2xl p-2 text-white cursor-pointer">View More</Button>
+            </Link>
 
         </Card>
     );
